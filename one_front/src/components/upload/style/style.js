@@ -28,5 +28,10 @@ export const useStyles = makeStyles((theme) => ({
         borderStyle: "dashed",
         borderRadius: 5,
         textAlign: 'center'
+    },
+    uploadIcon: {
+        width: 90,
+        height: 90,
+        color: 'grey'
     }
 }));

@@ -9,16 +9,23 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Dropzone from "react-dropzone";
 import {dragDropUploadFile} from "./actions/UploadCardActions";
+import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
 
 const UploadCard = (props) => {
     const classes = useStyles();
-    const {files, setFiles} = props;
+    const {files, setFiles, setTooltip} = props;
+
+    const handleHelpIconOnClick = () => {
+        setTooltip(true);
+    }
 
     return (
         <Card className={classes.root} variant="outlined">
             <CardHeader
                 action={
-                    <IconButton style={{color: 'white'}} aria-label="settings">
+                    <IconButton style={{color: 'white'}}
+                                aria-label="settings"
+                                onClick={handleHelpIconOnClick}>
                         <HelpOutlineIcon/>
                     </IconButton>
                 }
@@ -37,7 +44,14 @@ const UploadCard = (props) => {
                                 <section>
                                     <div className={classes.dropzone} {...getRootProps()}>
                                         <input {...getInputProps()} />
-                                        <p style={{position: 'relative', top: '35%'}}>Drag / drop file or click to upload</p>
+                                        <Grid container justify='center'>
+                                            <Grid item justify='center' style={{marginTop: 20}}>
+                                                <CloudUploadOutlinedIcon className={classes.uploadIcon}/>
+                                                <Typography variant="h6" noWrap>
+                                                    Drag / drop file or click to upload
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
                                     </div>
                                 </section>
                             )}

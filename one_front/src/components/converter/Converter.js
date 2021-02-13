@@ -10,11 +10,13 @@ import {
 import FileCard from "../file/FileCard";
 import SnackAlert from "../context/alert/Notification";
 import UploadCard from "../upload/UploadCard";
+import GuideDialog from "../guide/GuideDialog";
 
 const Converter = () => {
     const [files, setFiles] = useState([]);
     const [sameAlert, setSameAlert] = useState(false);
     const [formatAlert, setFormatAlert] = useState(false);
+    const [tooltip, setTooltip] = useState(false);
 
     useEffect(() => {
         if (shouldRiseFormatAlert(files, setFormatAlert)) {
@@ -37,6 +39,9 @@ const Converter = () => {
         }
         setSameAlert(false)
     };
+    const handleTooltipOnClose = () => {
+        setTooltip(false);
+    };
     return (
         <>
             <Grid container direction='column'
@@ -49,7 +54,8 @@ const Converter = () => {
                     <Grid item style={{marginTop: 60}}>
                         <UploadCard
                             files={files}
-                            setFiles={setFiles}/>
+                            setFiles={setFiles}
+                            setTooltip={setTooltip}/>
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -77,6 +83,11 @@ const Converter = () => {
                                         handleAlertOnClose={handleSameAlertClose}>
                                 This file was already added!
                             </SnackAlert>
+                            : null}
+                        {tooltip ?
+                            <GuideDialog
+                                tooltip={tooltip}
+                                handleTooltipOnClose={handleTooltipOnClose}/>
                             : null}
                     </Grid>
                 </Grid>
