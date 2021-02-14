@@ -1,1 +1,0 @@
-export const dragDropUploadFile = (droppedFile, files, setFile) => setFile([Array.from(droppedFile)[0], ...files])
