@@ -20,12 +20,12 @@ const GuideDialog = (props) => {
                 onClose={handleTooltipOnClose}
                 aria-labelledby='Converter tooltip'
         >
-            <DialogTitle id='Converter tooltip'>Converter guidelines:</DialogTitle>
+            <DialogTitle id='Converter tooltip'>Processor guidelines:</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    This is converter for AutoCAD files saved in DWG format.
+                    This is converter for AutoCAD files saved in DXF format.
                     Please drag and drop file on pointed area or just click to select a file to conversion.
-                    Converter will analyse a draw and point out the data specific for the findings.
+                    Processor will analyse a draw and point out the data specific for the findings.
                 </DialogContentText>
             </DialogContent>
             <DialogActions>

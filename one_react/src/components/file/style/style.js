@@ -1,9 +1,9 @@
 import {makeStyles} from "@material-ui/core";
+import {green} from "@material-ui/core/colors";
 
 export const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        padding: 10,
     },
     bullet: {
         display: 'inline-block',
@@ -13,4 +13,10 @@ export const useStyles = makeStyles({
     title: {
         fontSize: 14,
     },
+    buttonProgress: {
+        color: green[500],
+        top: '50%',
+        left: '50%',
+        marginBottom: -2
+    }
 });

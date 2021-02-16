@@ -1,6 +1,11 @@
 import axios from "axios";
 
-export const executeConversion = (file, setFileAccepted) => {
+const removeFile = (name) => {
+    return name.substring(0, name.indexOf('.'));
+}
+
+export const executeConversion = (file, setFileAccepted, setProgress) => {
+    setProgress(true)
     const data = new FormData();
     data.append('file', file);
     axios.post('http://localhost:3001/upload', data)
@@ -25,4 +30,20 @@ export const executeConversion = (file, setFileAccepted) => {
                 declined: true
             }))
         });
+}
+
+export const requestResults = (file, setDetails) => {
+    axios.get(`http://localhost:3001/result/${file.name}`)
+        .then(resp => {
+            setDetails({
+                name: removeFile(file.name),
+                data: resp.data
+            });
+        })
+        .catch(err => {
+            setDetails({
+                name: removeFile(file.name),
+                error: err.message
+            })
+        })
 }

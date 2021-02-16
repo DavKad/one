@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
-import {alreadyUpdatedFile, excludeNotSupportedFile, excludeSameFile, shouldRiseFormatAlert} from './ConverterActions'
+import {
+    alreadyUpdatedFile,
+    excludeNotSupportedFile,
+    excludeSameFile,
+    shouldRiseFormatAlert
+} from './actions/ProcessorActions'
 import SnackAlert from "../context/alert/Notification";
 import UploadCard from "../upload/UploadCard";
 import GuideDialog from "../guide/GuideDialog";
 
-const Converter = () => {
+const Processor = () => {
     const [sameAlert, setSameAlert] = useState(false);
     const [formatAlert, setFormatAlert] = useState(false);
     const [tooltip, setTooltip] = useState(false);
@@ -81,4 +86,4 @@ const Converter = () => {
     );
 };
 
-export default Converter;
+export default Processor;

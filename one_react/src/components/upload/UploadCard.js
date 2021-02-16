@@ -9,7 +9,7 @@ import Dropzone from "react-dropzone";
 import {dragDropUploadFile} from "./actions/UploadCardActions";
 import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
 import FileCard from "../file/FileCard";
-import {getFileFormat} from "../converter/ConverterActions";
+import {getFileFormat} from "../processor/actions/ProcessorActions";
 import SnackAlert from "../context/alert/Notification";
 import {guideHeader, titleHeader} from "./CardParts";
 

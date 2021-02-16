@@ -1,4 +1,4 @@
-const supportedFormats = ['dwg']
+const supportedFormats = ['dxf']
 
 export const uploadFile = (event, files, setFiles) => {
     return setFiles([uploadedFile(event), ...files]);
@@ -10,10 +10,6 @@ export const getFileFormat = (name) => {
 export const excludeNotSupportedFile = (files, setFiles) => {
     const supportedFiles = files.filter(file => !isNotSupportedFormat(file));
     setFiles(supportedFiles);
-}
-
-export const excludeSameFile = (files, setFiles) => {
-
 }
 
 export const alreadyUpdatedFile = (files, setSameAlert) => {
